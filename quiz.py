@@ -60,7 +60,7 @@ chain = quiz_from_text_prompt | model | StrOutputParser()
 # ----------------------
 # Configure the page title and layout
 st.set_page_config(page_title="AI Quiz Generator", layout="wide")
-st.title("📚 Quiz Generator from News Article")
+st.title(" Quiz Generator from News Article")
 
 # Initialize session state variables to hold data across reruns
 # 'quiz_data' stores the generated questions and answers
@@ -121,15 +121,15 @@ with st.sidebar:
                         if is_valid:
                             st.session_state.quiz_data = result
                             st.session_state.submitted = False # Reset submission status
-                            st.success("✅ Quiz Generated!")
+                            st.success(" Quiz Generated!")
                     else:
-                        st.error("⚠️ Could not find valid JSON in the LLM response. Please try again.")
+                        st.error(" Could not find valid JSON in the LLM response. Please try again.")
                 
                 # Handle potential errors during the process
                 except json.JSONDecodeError:
-                    st.error("⚠️ Failed to parse LLM output. The format was invalid.")
+                    st.error(" Failed to parse LLM output. The format was invalid.")
                 except Exception as e:
-                    st.error(f"⚠️ An error occurred: {str(e)}")
+                    st.error(f" An error occurred: {str(e)}")
 
 # This section runs only if quiz data exists in the session state
 if st.session_state.quiz_data:
@@ -177,7 +177,7 @@ if st.session_state.submitted and st.session_state.quiz_data:
             score += 1
 
     # Display the final score
-    st.write(f"### 🎯 Your Score: {score} / {len(st.session_state.quiz_data)}")
+    st.write(f"###  Your Score: {score} / {len(st.session_state.quiz_data)}")
     st.info("The correct answers are marked in green below.")
 
     # Display a detailed breakdown of the results
